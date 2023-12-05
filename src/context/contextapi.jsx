@@ -3,26 +3,26 @@ import { fetchFromApi } from "../utils/fetchFromApi";
 
 const Context = createContext();
 function AppContext({ children }) {
-  const [loading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("home");
   const [searchResults, setSearchResults] = useState([]);
   const [mobileMenu, setMobileMenu] = useState(false);
 
-  useEffect(() => {
-    fetchSelectedCategoryData(selectedCategory);
-  }, [selectedCategory]);
+  // useEffect(() => {
+  //   fetchSelectedCategoryData(selectedCategory);
+  // }, [selectedCategory]);
 
-  function fetchSelectedCategoryData(query) {
-    setIsLoading(true);
-    fetchFromApi(`${query}`).then(({ data, filters }) => {
-      console.log(data);
-      setSearchResults(data);
-      setIsLoading(false);
-    });
-  }
+  // function fetchSelectedCategoryData(query) {
+  //   setIsLoading(true);
+  //   fetchFromApi(`${query}`).then(({ data, filters }) => {
+  //     console.log(data);
+  //     setSearchResults(data);
+  //     setIsLoading(false);
+  //   });
+  // }
 
   const contextValue = {
-    loading,
+    isLoading,
     setIsLoading,
     searchResults,
     setSelectedCategory,
